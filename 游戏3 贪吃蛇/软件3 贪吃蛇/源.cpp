@@ -23,22 +23,20 @@ typedef long long ll;
 #include "time.h"
 #include<easyx.h>
 #include<graphics.h>
-#include"±êÍ·.h"
+#include"æ ‡å¤´.h"
 
 #include<windows.h>
 #include<Mmsystem.h>
-//sound:
+
 #include<mmsystem.h>
 #pragma comment(lib,"winmm.lib")
 #include <thread>
-/*
-ÈÎÎñ ´ó¶¹×ÓÓĞÊ±¼äÏŞÖÆ
-*/
+
 
 static int timee[11]={0};
 #define kuan 360
 #define chang 510
-bool timer(int ms,int id) {//!!!  ÔÚÑ­»·ÖĞÊ± qÔÚwhileÏÂ·´¸´È¡Öµµ±¶ÔÊ±²Å·µ»Ø1 ÆäÓà¶¼ÊÇ0
+bool timer(int ms,int id) {
 	int q = clock();
 	if (q - timee[id] >= ms)
 	{
@@ -48,7 +46,7 @@ bool timer(int ms,int id) {//!!!  ÔÚÑ­»·ÖĞÊ± qÔÚwhileÏÂ·´¸´È¡Öµµ±¶ÔÊ±²Å·µ»Ø1 ÆäÓ
 	return 0;
 }
 struct snake {
-	POINT a[aa];//pointÊÇÒ»¸ömap
+	POINT a[aa];
 	int direction;
 	int speed;
 	int size;
@@ -67,25 +65,22 @@ static int swiftint = 0;
 char ch[20];
 
 void effectf() {
-	mciSendString(_T("open ./×ÊÔ´/µÃ.mp3 alias bgm2"), 0, 0, 0);
+	mciSendString(_T("open ./èµ„æº/å¾—.mp3 alias bgm2"), 0, 0, 0);
 	mciSendString("setaudio bgm2 volume to 3000", NULL, 0, NULL);
 	mciSendString(_T("play bgm2"), 0, 0, 0);
 	
 }
 void bgmf() {
-	mciSendString("open ./×ÊÔ´/BGM04.mp3 alias bgm1", 0, 0, 0);//alias+nameÎªÈ¡Ğ¡Ãû 0£¬0£¬0ÊÇÒôÀÖ²ÎÊı
+	mciSendString("open ./èµ„æº/BGM04.mp3 alias bgm1", 0, 0, 0);
 	mciSendString("setaudio bgm1 volume to 200", NULL, 0, NULL);
 	mciSendString("play bgm1 repeat", 0, 0, 0);
 }
 void init() {
 	
-	//(1)¶ÁÈ¡ÒôÁ¿µÄÓï¾ä£º
-	//	char res[260];
-	//mciSendString("status 01.mp3 volume", res, 260, NULL);
+	
 	thread bgm_thread(bgmf);
 	this_thread::sleep_for(std::chrono::seconds(3));
 	bgm_thread.join();
-	//ºó×º²»ÄÜ.wav Òªmp3
 	
 
 
@@ -100,17 +95,17 @@ void init() {
 	p.a[2].y = p.a[1].y+15;
 	p.score = 0;
 
-	settextstyle(20, 0, _T("¿¬Êé"));
+	settextstyle(20, 0, _T("æ¥·ä¹¦"));
 }
 int dist(int x1, int y1, int x2, int y2)
 {
 	int dist = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	return dist;
-}//Á½µã¾àÀë
+}//ä¸¤ç‚¹è·ç¦»
 
 IMAGE imgameover;
 void loading() {
-	loadimage(&imgameover, "×ÊÔ´/gameover.png");
+	loadimage(&imgameover, "èµ„æº/gameover.png");
 }
 bool control() {
 	
@@ -143,25 +138,22 @@ bool control() {
 	
 	return 0;
 }
-//void gameover() {
-//	goto endd;
-//};
+
 bool draw() {
 	
 	
 
-	sprintf(ch, "%d", p.score);//ÓÃÕâ¸ö×ª»»ÀàĞÍ²ÅĞĞ
+	sprintf(ch, "%d", p.score);
 	outtextxy(chang - 30, 0, ch);
 	
 
-	//¶¹×Ó  Ğ¡  ´ó  Î»ÖÃ¼ì²â
-	//snack  timer  issnackexist
+	
 	if(is_snack_exist == 0)
 	if (snacksum < 3) {
-		while (1) {//²»Ë¢ÉßÉíÉÏ
+		while (1) {//ä¸åˆ·è›‡èº«ä¸Š
 			s1.x = rand()%chang + 1-5;
 			s1.y = rand()%kuan + 1-5;
-			for (int i = 0; i < p.size; i++) {//Õâ´ÎÀûÓÃÖØĞÄ½â¾öÅö×²ÎÊÌâ
+			for (int i = 0; i < p.size; i++) {//ç¢°æ’
 				if (dist(s1.x+3,s1.y+3,p.a[i].x+15,p.a[i].y + 15)<=13)
 					goto f1;
 			}
@@ -174,10 +166,10 @@ bool draw() {
 		snackstate = 0;
 	}
 	else {
-		while (1) {//²»Ë¢ÉßÉíÉÏ
+		while (1) {
 			s1.x = rand() % chang + 1-15;
 			s1.y = rand() % kuan + 1-15;
-			for (int i = 0; i < p.size; i++) {//Õâ´ÎÀûÓÃÖØĞÄ½â¾öÅö×²ÎÊÌâ
+			for (int i = 0; i < p.size; i++) {
 				if (i == p.size && dist(s1.x + 8, s1.y + 8, p.a[i].x + 15, p.a[i].y + 15) <= 23)cout << "1!!!" << endl;
 				if (dist(s1.x + 8, s1.y + 8, p.a[i].x + 15, p.a[i].y + 15) <= 23)
 					goto f2;
@@ -196,7 +188,7 @@ bool draw() {
 	if(snackstate == 0)solidcircle(s1.x, s1.y, 5);
 	else solidcircle(s1.x, s1.y, 15);
 
-	//Éß
+	//è›‡
 	for (int i = 0; i < p.size; i++)
 		solidrectangle(p.a[i].x, p.a[i].y, p.a[i].x + 15, p.a[i].y + 15);
 	for (int i = p.size; i >= 0; i--)
@@ -206,33 +198,16 @@ bool draw() {
 	
 	
 
-	{//Ì°³ÔÉß½Å±¾  ´ı×ö
-		if (!control()) {
-			switch (p.direction) {
-			case 1:p.a[0].y -= p.speed; Sleep(300); break;
-			case 2:p.a[0].y += p.speed; Sleep(300); break;
-			case 3:p.a[0].x -= p.speed; Sleep(300); break;
-			case 4:p.a[0].x += p.speed; Sleep(300); break;
-			default:cout << "JI" << endl; break;
-			}
-		}
-	}
 
-	//{//´ËÊ±sizeÒÑ¾­++// !!!!!!!!!!!!! ¸ù±¾²»ÓÃ¿¼ÂÇÕâ¸öÎÊÌâ£¡£¡
-	//	
-	//	for (int i = p.size; i >0; i--) {
-	//		p.a[i ] = p.a[i-1];
-	//	}
-	//}
 
-	//³Ô   
+	
 	if (snackstate==1)
-	{//´ó
+	{
 		if (dist(s1.x +8, s1.y + 8, p.a[0].x + 15, p.a[0].y + 15) <= 23)
 		{
 			mciSendString("seek bgm2 to start", 0, 0, 0); 
-			// ¡ù½«ÒôĞ§ÎÄ¼şµÄ²¥·ÅÎ»ÖÃÖØÖÃµ½ÆğÊ¼Î»ÖÃ  ÒòÎªmciSendString("play bgm2", 0, 0, 0);Ö»ÊÇ¼ÌĞø²¥·Å£¬ÕâÑù»áµ¼ÖÂµÚ¶ş´ÎÎŞÒôĞ§
-			mciSendString("play bgm2", 0, 0, 0); // ²¥·ÅÒôĞ§
+			// â€»å°†éŸ³æ•ˆæ–‡ä»¶çš„æ’­æ”¾ä½ç½®é‡ç½®åˆ°èµ·å§‹ä½ç½®  å› ä¸ºmciSendString("play bgm2", 0, 0, 0);åªæ˜¯ç»§ç»­æ’­æ”¾ï¼Œè¿™æ ·ä¼šå¯¼è‡´ç¬¬äºŒæ¬¡æ— éŸ³æ•ˆ
+			mciSendString("play bgm2", 0, 0, 0); // æ’­æ”¾éŸ³æ•ˆ
 			
 			 p.score += 3; p.size += 3; 
 			is_snack_exist = 0;
@@ -243,8 +218,8 @@ bool draw() {
 	}
 	else {
 		if (dist(s1.x + 3, s1.y + 3, p.a[0].x + 15, p.a[0].y + 15) <= 13) {
-			mciSendString("seek bgm2 to start", 0, 0, 0); // ½«ÒôĞ§ÎÄ¼şµÄ²¥·ÅÎ»ÖÃÖØÖÃµ½ÆğÊ¼Î»ÖÃ
-			mciSendString("play bgm2", 0, 0, 0); // ²¥·ÅÒôĞ§
+			mciSendString("seek bgm2 to start", 0, 0, 0); // å°†éŸ³æ•ˆæ–‡ä»¶çš„æ’­æ”¾ä½ç½®é‡ç½®åˆ°èµ·å§‹ä½ç½®
+			mciSendString("play bgm2", 0, 0, 0); // æ’­æ”¾éŸ³æ•ˆ
 		
 			p.score += 1; p.size += 1;
 			is_snack_exist = 0;
@@ -252,14 +227,14 @@ bool draw() {
 		}
 	}
 
-	//´©Ô½
+	//ç©¿è¶Š
 	if (p.a[0].x >= chang)p.a[0].x = 0;
 	if (p.a[0].x < 0)p.a[0].x = chang;
 	if (p.a[0].y >= kuan)p.a[0].y = 0;
 	if (p.a[0].y < 0)p.a[0].y = kuan;
 	
-	//×ÔÉíÅö×²
-	for (int i = p.size; i >=3; i--) {//²»¿ÉÄÜ×²1£¬2
+	//è‡ªèº«ç¢°æ’
+	for (int i = p.size; i >=3; i--) {
 		if (p.a[0].x==p.a[i].x&& p.a[0].y == p.a[i].y)return 1;
 	}
 	return 0;
@@ -271,13 +246,13 @@ bool draw() {
 int main() {
 	srand((unsigned)time(0));
 	initgraph(chang, kuan);
-	initgraph(chang, kuan, SHOWCONSOLE);//debugÓÃÕâ¸ö£¡£¡£¡£¡£¡ÇÒ°Ñ´úÂë·Åµ½´°¿Ú´úÂëµÄÏÂÃæ
+	initgraph(chang, kuan, SHOWCONSOLE);
 	
 	
 	init();
 	while (true) {
-		setbkcolor(RGB(28, 140, 119));//ºìÂÌ»Æ
-		cleardevice();//Òª¼ÓÕâ¸öÉÏÃæµÄ²ÅÓĞÓÃ
+		setbkcolor(RGB(28, 140, 119));
+		cleardevice();
 		
 		int t1 = clock();
 		if(draw())goto endd;
