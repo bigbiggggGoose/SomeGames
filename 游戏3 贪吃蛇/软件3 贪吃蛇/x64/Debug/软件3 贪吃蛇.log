@@ -1,0 +1,33 @@
+﻿生成启动时间为 2025/3/13 15:35:17。
+日志记录详细程度设置为: Normal。     1>项目“D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\软件3 贪吃蛇.vcxproj”在节点 2 上(Build 个目标)。
+     1>PrepareForBuild:
+         已启用结构化输出。编译器诊断的格式设置将反映错误层次结构。有关详细信息，请参阅 https://aka.ms/cpp/structured-output。
+       InitializeBuildStatus:
+         正在创建“x64\Debug\软件3 贪吃蛇.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“x64\Debug\软件3 贪吃蛇.tlog\unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl- /Od /D _DEBUG /D _CONSOLE /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt "源.cpp"
+         源.cpp
+     1>D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\源.cpp(107,11): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+     1>D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\源.cpp(153,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C++\游戏3 贪吃蛇\x64\Debug\软件3 贪吃蛇.exe" /INCREMENTAL /ILK:"x64\Debug\软件3 贪吃蛇.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\C++\游戏3 贪吃蛇\x64\Debug\软件3 贪吃蛇.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C++\游戏3 贪吃蛇\x64\Debug\软件3 贪吃蛇.lib" /MACHINE:X64 "x64\Debug\源.obj"
+         软件3 贪吃蛇.vcxproj -> D:\C++\游戏3 贪吃蛇\x64\Debug\软件3 贪吃蛇.exe
+       TlogCleanup:
+         正在从 tlog 中移除以下项，因为它们已从项目或生成中移除: D:\C++\软件3 贪吃蛇\软件3 贪吃蛇\源.cpp
+       FinalizeBuildStatus:
+         正在删除文件“x64\Debug\软件3 贪吃蛇.tlog\unsuccessfulbuild”。
+         正在对“x64\Debug\软件3 贪吃蛇.tlog\软件3 贪吃蛇.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\软件3 贪吃蛇.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+       “D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\软件3 贪吃蛇.vcxproj”(Build 目标) (1) ->
+       (ClCompile 目标) -> 
+         D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\源.cpp(107,11): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+         D:\C++\游戏3 贪吃蛇\软件3 贪吃蛇\源.cpp(153,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+
+    2 个警告
+    0 个错误
+
+已用时间 00:00:01.44
